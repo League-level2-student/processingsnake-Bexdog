@@ -51,12 +51,15 @@ void setX(int fx){
 //int foodX = ((int)random(50)*10);
 
 
-
+public void settings(){
+  size(500,500);
+}
 void setup() {
-
+  
   // 9. Set the size of your sketch (500 by 500).
 
-  size(500, 500);
+
+
 
 
   // 10. initialize your head to a new segment.
@@ -84,13 +87,16 @@ void draw() {
 // 13. Complete the drawFood method below. (Hint: each piece of food should be a 10 by 10 rectangle).
 
 void drawFood() {
+  fill(255,0,0);
+  ellipse(foodX,foodY,10,10);
 }
 
 
 //14. Draw the snake head (use a 10 by 10 rectangle)
 
 void drawSnake() {
-
+  fill(25,211,25);
+  rect(head.getX(),head.getY(),10,10);
 
   //test your code
 }
@@ -102,24 +108,24 @@ void move() {
 
   // 16. Using a switch statement, make your snake head move by 10 pixels in the correct direction.
   //This is an incomplete switch statement:
-  /*
-  switch(dir) {
+  
+  switch(direction) {
   case "up":
-    // move head up here 
+   head.setY(head.getY()-10);
     break;
   case "down":
-    // move head down here 
+     head.setY(head.getY()+10);
     break;
   case "left":
-   // figure it out 
+   head.setX(head.getY()-10);
     break;
   case "right":
-    // mystery code goes here 
+    head.setX(head.getY()+10);
     break;
   }
-  */
+  
 
-
+  checkBoundaries();
   // 17. Call the checkBoundaries method to make sure the snake head doesn't go off the screen.
 }
 
@@ -127,6 +133,7 @@ void move() {
 // 18. Complete the keyPressed method below. Use if statements to set your direction variable depending on what key is pressed.
 
 void keyPressed() {
+  direction.equals(keyPressed);
 }
 
 
@@ -134,6 +141,18 @@ void keyPressed() {
 // 19. check if your head is out of bounds (teleport your snake head to the other side).
 
 void checkBoundaries() {
+  if(head.getX()>=510){
+    head.setX(10);
+  }
+  if(head.getY()>=510){
+    head.setY(10);
+  }
+  if(head.getX()<=-10){
+    head.setX(490);
+  }
+  if(head.getY()<=-10){
+    head.setX(490);
+  }
 }
 
 
@@ -145,9 +164,13 @@ void checkBoundaries() {
 // 21. Complete the missing parts of the collision method below.
 
 void collision() {
-
+  if((X==foodX)&&(Y==foodY)){
+  food++;
+   foodX = ((int)random(50)*10);
+   foodY = ((int)random(50)*10);
   // If the segment is colliding with a piece of food...
      // Increase the amount of food eaten and set foodX and foodY to new random locations.
+  }
 }
 
 
