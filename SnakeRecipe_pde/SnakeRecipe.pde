@@ -6,36 +6,46 @@
 class Segment {
 
   //2. Create x and y member variables to hold the location of each segment.
-int fx;
-int fy;
-int sx;
-int sy;
-int tx;
-int ty;
-int fox;
-int foy;
-  // 3. Add a constructor with parameters to initialize each variable.
+private int X;
+private int Y;
 
+  // 3. Add a constructor with parameters to initialize each variable
+  public Segment(int fx, int fy){
+  X=fx;
+  Y=fy;
+ }
 
   // 4. Add getter and setter methods for both the x and y member variables.
+
+int getY(){
+  return Y;
 }
-
-
+void setY(int fy){
+  Y=fy;
+}
+int getX(){
+  return X;
+}
+void setX(int fx){
+  X=fx;
+}
+}
 // 5. Create (but do not initialize) a Segment variable to hold the head of the Snake
-
+  Segment head;
 
 
 // 6. Create and initialize a String to hold the direction of your snake e.g. "up"
-
+  String direction = "up";
 
 
 // 7. Create and initialize a variable to hold how many pieces of food the snake has eaten.
 // give it a value of 1 to start.
-
+  int food = 1;
 
 
 // 8. Create and initialize foodX and foodY variables to hold the location of the food.
-
+  int foodX = ((int)random(50)*10);
+  int foodY = ((int)random(50)*10);
 // (Hint: use the random method to set both the x and y to random locations within the screen size (500 by 500).)
 
 //int foodX = ((int)random(50)*10);
@@ -50,9 +60,10 @@ void setup() {
 
 
   // 10. initialize your head to a new segment.
-
+  head = new Segment(250,250);
 
   // 11. Use the frameRate(int rate) method to set the rate to 20.
+  frameRate(20);
 }
 
 
@@ -62,6 +73,11 @@ void draw() {
 
 
   //12. Call the manageTail, drawFood, drawSnake, move, and collision methods.
+  manageTail();
+  drawFood();
+  drawSnake();
+  move();
+  collision();
 }
 
 
