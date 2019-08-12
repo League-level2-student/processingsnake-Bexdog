@@ -133,20 +133,20 @@ void move() {
 // 18. Complete the keyPressed method below. Use if statements to set your direction variable depending on what key is pressed.
 
 void keyPressed() {
-  if((keyCode==38)&&(direction!="down")){
+  if((keyCode==87)&&(direction!="down")){
     direction="up";
   }
-  else if((keyCode==37)&&(direction!="right")){
+  else if((keyCode==65)&&(direction!="right")){
     direction="left";
   }
-  else if((keyCode==40)&&(direction!="up")){
+  else if((keyCode==83)&&(direction!="up")){
     direction="down";
   }
-  else if((keyCode==39)&&(direction!="left")){
+  else if((keyCode==68)&&(direction!="left")){
     direction="right";
   }
-  
-//up:38 down:40 left:37 right:39
+  System.out.println(keyCode);
+//up:38/87 down:40/83 left:37/65 right:39/68
 
 }
 
